@@ -1,0 +1,19 @@
+graph zedis_concept {
+    rankdir="LR"
+    label="concept zero-ftp"
+
+    client [shape=trapezium label="FTP client"]
+
+    ftp_server [shape=rectangle label="FTP server"]
+
+    ftp_driver [shape=rectangle label="Custom FTP driver"]
+
+    stor_cluster [shape=ellipse label="0-stor storage cluster"]
+
+    meta_cluster [shape=ellipse label="Cockroach metadata database cluster"]
+
+    client -- ftp_server [style="dashed"]
+    ftp_server -- ftp_driver 
+    ftp_driver -- stor_cluster [style="dashed"]
+    ftp_driver -- meta_cluster [style="dashed"]
+}
